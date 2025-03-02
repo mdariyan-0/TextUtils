@@ -138,9 +138,7 @@ function App() {
  
   {/* <Router> */}
     <Navbar title="TextUtils" mode={toggleMode} modeExtra={handleTheme} mode2={handleThemeRed} mode3={handleThemeBlue} mode4={handleThemeGreen} textMode={textMode} modeName={mode}/>
-    <div style={{height: "50px"}}>
     <Alert alert={alert}/>
-    </div>
     <Textform heading="Enter the text to analyze below" btnMode={btnMode} rows={rows} setAlert={myAlert} textMode={textMode} modeName={mode}/>
     {/* <Routes>
       <Route index element={<Textform heading="Enter the text to analyze below" btnMode={btnMode} setAlert={myAlert} textMode={textMode} modeName={mode}/>} />
