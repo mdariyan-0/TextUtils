@@ -11,16 +11,14 @@ import { useState } from 'react'
 //  } from 'react-router-dom'
 
 function App() {
-  const [rows, setRows] = useState("8")
+  const [rows, setRows] = useState(8)
   const getWinSize = ()=>{
     window.addEventListener("load",() => {
       var getdata = window.innerWidth
-      console.log(getdata);
-      
-      if(getdata < 500){
-          setRows("4")
+      if(getdata < 600){
+          setRows(4)
       }else{
-          setRows("8")
+          setRows(8)
       }
       })
   }
