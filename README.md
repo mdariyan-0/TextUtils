@@ -1,7 +1,7 @@
 # TextUtils
 
 This is a very useful tool for formatting your texts and do additions to it.
-Have a great time using it.
+Have a great time using it. :)
 
 This Project is made using Vite and React JS.
 Currently, two official plugins are available:
