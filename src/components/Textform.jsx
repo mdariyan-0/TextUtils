@@ -26,7 +26,7 @@ export default function Textform(props) {
             }
     }
     const handleOnChangeFind = (e) => {
-        setFindText(e.target.value)
+        setFindText(e.target.value.toLowerCase())
     }
     const handleOnChange = (e) => {
         setText(e.target.value)
