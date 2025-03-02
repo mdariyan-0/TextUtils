@@ -17,7 +17,7 @@ function App() {
       var getdata = window.innerWidth
       console.log(getdata);
       
-      if(getdata < 475){
+      if(getdata < 500){
           setRows("4")
       }else{
           setRows("8")
