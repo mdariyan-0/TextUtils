@@ -11,7 +11,20 @@ import { useState } from 'react'
 //  } from 'react-router-dom'
 
 function App() {
- 
+  const [rows, setRows] = useState("8")
+  const getWinSize = ()=>{
+    window.addEventListener("load",() => {
+      var getdata = window.innerWidth
+      console.log(getdata);
+      
+      if(getdata < 475){
+          setRows("4")
+      }else{
+          setRows("8")
+      }
+      })
+  }
+  getWinSize()
   var [theme, setTheme] = useState("default")
   const [btnMode, setBtnMode] = useState("secondary")
   const [textMode, setTextMode] = useState("dark")
@@ -128,7 +141,7 @@ function App() {
   {/* <Router> */}
     <Navbar title="TextUtils" mode={toggleMode} modeExtra={handleTheme} mode2={handleThemeRed} mode3={handleThemeBlue} mode4={handleThemeGreen} textMode={textMode} modeName={mode}/>
     <Alert alert={alert}/>
-    <Textform heading="Enter the text to analyze below" btnMode={btnMode} setAlert={myAlert} textMode={textMode} modeName={mode}/>
+    <Textform heading="Enter the text to analyze below" btnMode={btnMode} rows={rows} setAlert={myAlert} textMode={textMode} modeName={mode}/>
     {/* <Routes>
       <Route index element={<Textform heading="Enter the text to analyze below" btnMode={btnMode} setAlert={myAlert} textMode={textMode} modeName={mode}/>} />
       <Route exact path='/about' element={ <About/>}/>

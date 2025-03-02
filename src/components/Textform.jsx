@@ -147,9 +147,9 @@ export default function Textform(props) {
                 <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div className="toast-body">
-                <div class="d-flex" >
-                    <input class="form-control me-2" placeholder="Search" onChange={handleOnChangeFind} value={findText}  />
-                    <button class="btn btn-outline-success" onClick={handleFind}>Search</button>
+                <div className="d-flex" >
+                    <input className="form-control me-2" placeholder="Search" onChange={handleOnChangeFind} value={findText}  />
+                    <button className="btn btn-outline-success" onClick={handleFind}>Search</button>
                 </div>
             </div>
         </div>
@@ -183,22 +183,22 @@ export default function Textform(props) {
             <div className='my-3 d-flex align-items-center justify-content-between'>
             <h1 className='d-inline-block'>{props.heading}</h1>
             <div>
-            <button className={`btn btn-${props.btnMode} d-inline-block me-2`} onClick={handlePaste}>Paste</button>
-            <button className={`btn btn-${props.btnMode} d-inline-block`} onClick={handleCopy}>Copy Text</button>
+            <button className={`btn btn-${props.btnMode} d-inline-block my-1`} onClick={handleCopy}>Copy Text</button>
+            <button className={`btn btn-${props.btnMode} d-inline-block mx-2 my-1`} onClick={handlePaste}>Paste</button>
             </div>
             </div>
             <div className="mb-3 ">
-                <textarea className="form-control" onChange={handleOnChange} placeholder='Enter text here...' value={text} id="myBox" rows="8"></textarea>
+                <textarea className="form-control txt-area" onChange={handleOnChange} placeholder='Enter text here...' value={text} id="myBox" rows={ props.rows }></textarea>
             </div>
-            <button className={`btn btn-${props.btnMode} me-3`} onClick={handleUpCase}>Convert to Uppercase</button>
-            <button className={`btn btn-${props.btnMode} me-3`} onClick={handleLoCase}>Convert to Lowercase</button>
-            <button className={`btn btn-${props.btnMode} me-3`} onClick={capitalize}>Capitalize Text</button>
-            <button className={`btn btn-${props.btnMode} me-3`} onClick={handleExtraSpaces}>Handle Extra Spaces</button>
-            <button className={`btn btn-${props.btnMode} me-3`} onClick={handleClear}>Clear Text</button>
-            <button type="button" className={`btn btn-${props.btnMode} me-3`} onClick={frequentWords} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={handleLoCase}>Convert to Lowercase</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={handleUpCase}>Convert to Uppercase</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={capitalize}>Capitalize Text</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={handleExtraSpaces}>Handle Extra Spaces</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={handleClear}>Clear Text</button>
+            <button type="button" className={`btn btn-${props.btnMode} me-3 my-1`} onClick={frequentWords} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Frequent Words
             </button>
-            <button className={`btn btn-${props.btnMode} me-3`} onClick={()=>document.getElementsByClassName("toast")[0].classList.add("show")}>Find</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={()=>document.getElementsByClassName("toast")[0].classList.add("show")}>Find</button>
         </div>
         
         <div className={`container my-2 text-${props.textMode}`} data-bs-theme={props.modeName}>

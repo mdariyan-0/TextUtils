@@ -5,7 +5,7 @@ const capitalize = (word)=>{
 }
 export default function Alert(props) {
   return (
-    props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show position-relative top-0 w-100`} role="alert">
+    props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show position-absolute`} role="alert">
     <strong>{capitalize(props.alert.type)}</strong> : {props.alert.msg}
   </div>
   )
