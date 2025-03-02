@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function About() {
-     document.title = "TextUtils - About Us"
   return (
     <>
     <div className="container">

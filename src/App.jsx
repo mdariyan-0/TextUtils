@@ -139,7 +139,7 @@ function App() {
   {/* <Router> */}
     <Navbar title="TextUtils" mode={toggleMode} modeExtra={handleTheme} mode2={handleThemeRed} mode3={handleThemeBlue} mode4={handleThemeGreen} textMode={textMode} modeName={mode}/>
     <Alert alert={alert}/>
-    <Textform heading="Enter the text to analyze below" btnMode={btnMode} rows={rows} setAlert={myAlert} textMode={textMode} modeName={mode}/>
+    <Textform heading="Try TextUtils - Character and Word Counter, Frequent Words" btnMode={btnMode} rows={rows} setAlert={myAlert} textMode={textMode} modeName={mode}/>
     {/* <Routes>
       <Route index element={<Textform heading="Enter the text to analyze below" btnMode={btnMode} setAlert={myAlert} textMode={textMode} modeName={mode}/>} />
       <Route exact path='/about' element={ <About/>}/>

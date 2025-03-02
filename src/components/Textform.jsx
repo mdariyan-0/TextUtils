@@ -3,8 +3,6 @@ import React, {useState, useRef} from 'react'
 
 export default function Textform(props) {
 
-    document.title = "TextUtils - Home"
-
     const [findText, setFindText] = useState("")
     
     const handleUpCase = () => {
@@ -37,8 +35,8 @@ export default function Textform(props) {
     const handleCopy = () =>{
         var text = document.getElementById("myBox")
         text.select()
-        text.setSelectionRange(0,9999)
         navigator.clipboard.writeText(text.value)
+        document.getSelection().removeAllRanges()
         if(text.value !== "" && text.value !== " "){
             props.setAlert("Copied to Clipboard!", "success")
             }else{
@@ -190,15 +188,15 @@ export default function Textform(props) {
             <div className="mb-3 ">
                 <textarea className="form-control txt-area" onChange={handleOnChange} placeholder='Enter text here...' value={text} id="myBox" rows={ props.rows }></textarea>
             </div>
-            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={handleLoCase}>Convert to Lowercase</button>
-            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={handleUpCase}>Convert to Uppercase</button>
-            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={capitalize}>Capitalize Text</button>
-            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={handleExtraSpaces}>Handle Extra Spaces</button>
-            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={handleClear}>Clear Text</button>
-            <button type="button" className={`btn btn-${props.btnMode} me-3 my-1`} onClick={frequentWords} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} disabled={text.length == 0} onClick={handleLoCase}>Convert to Lowercase</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} disabled={text.length == 0} onClick={handleUpCase}>Convert to Uppercase</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} disabled={text.length == 0} onClick={capitalize}>Capitalize Text</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} disabled={text.length == 0} onClick={handleExtraSpaces}>Handle Extra Spaces</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} disabled={text.length == 0} onClick={handleClear}>Clear Text</button>
+            <button type="button" className={`btn btn-${props.btnMode} me-3 my-1`} disabled={text.length == 0} onClick={frequentWords} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Frequent Words
             </button>
-            <button className={`btn btn-${props.btnMode} me-3 my-1`} onClick={()=>document.getElementsByClassName("toast")[0].classList.add("show")}>Find</button>
+            <button className={`btn btn-${props.btnMode} me-3 my-1`} disabled={text.length == 0} onClick={()=>document.getElementsByClassName("toast")[0].classList.add("show")}>Find</button>
         </div>
         
         <div className={`container my-2 text-${props.textMode}`} data-bs-theme={props.modeName}>
@@ -206,7 +204,7 @@ export default function Textform(props) {
             <p>Text Length: {text.length} , Word Count: {text.split(' ').filter((word) => word !== '').length}</p>
             <p>{Math.floor(5.1 * text.split(' ').filter((word) => word !== '').length)/100} Minutes read</p>
             <h2 className='my-2'>Preview:</h2>
-            <p>{text? text: "Enter something in the TextBox above to Preview..."}</p>
+            <p>{text? text: "Nothing to Preview..."}</p>
         </div>
   </>
   )
